@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../../context";
+import { AuthContext } from "context";
 import styles from "./Home.module.css";
 
 export function Home() {
