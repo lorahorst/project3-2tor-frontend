@@ -6,7 +6,7 @@ export function Landing() {
   const { user } = useContext(AuthContext);
   return (
     <div>
-      <code>{JSON.stringify(user)}</code>
+      <h1>Login / Signup</h1>
       <Login />
       <Signup />
     </div>
