@@ -42,7 +42,7 @@ export function Signup() {
           setEmail(e.target.value);
         }}
       />
-      <label htmlFor="password">Passwprd:</label>
+      <label htmlFor="password">Password:</label>
       <input
         id="password"
         type="password"
