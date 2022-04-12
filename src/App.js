@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import styles from "./App.module.css";
+import "./App.module.css";
 import { Navbar } from "components";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Navbar />
       <Outlet />
       footer
