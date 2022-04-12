@@ -1,0 +1,21 @@
+.nav_container {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    height: 100vh;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+.link {
+    font-size: 24px;
+    color: white;
+}
+
+.link:hover {
+    color: rgb(84, 46, 109)
+ }
