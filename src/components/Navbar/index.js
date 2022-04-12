@@ -11,6 +11,8 @@ export function Navbar() {
     <div className="nav_container">
     <nav className="nav-bar">
       {user && <Link to="/" className="link">Home<AiFillHome/></Link>}
+      {user && <Link to="/hw" className="link">Homework</Link>}
+      {user && <Link to="/sol" className="link">Solution</Link>}
       {!user && <Link to="/landing" className="link">Landing<FaUserInjured /></Link>}
       {user && <button onClick={logout}>Logout</button>}
     </nav>
