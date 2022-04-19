@@ -2,10 +2,11 @@ import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/editorjs';
 import List from '@editorjs/editorjs';
 import Embed from '@editorjs/editorjs';
+import {React, useEffect, useRef} from 'react';
 
+const EDITTOR_HOLDER_ID = 'editorjs';
 
 const editor = new EditorJS({
-    holderId : 'editorjs',
 
     tools: {
         header: {
@@ -27,3 +28,8 @@ const editor = new EditorJS({
         }
 })
 
+export function Homework( {
+    return (
+        <div id={EDITTOR_HOLDER_ID}> </div>
+    )
+});
