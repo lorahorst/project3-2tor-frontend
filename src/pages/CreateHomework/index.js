@@ -1,11 +1,7 @@
-import { Tweet } from "../Tweet/Tweet";
+import { Homework } from "../../components/Homework";
 
-export function Homework({ tweets, setTweets }) {
+export function CreateHomework() {
   return (
-    <div>
-      {homeworks.map((homework) => {
-        return <Homework key={homework._id} id={homework.id} content={homework.content} setHomework={setHomework} homework={homework} />;
-      })}
-    </div>
+    <Homework />
   );
 }
