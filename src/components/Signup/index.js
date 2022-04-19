@@ -53,13 +53,13 @@ export function Signup() {
       />
     <div className="radio">
       <label>
-        <input type="radio" value="Student" checked={true} />
+        <input type="radio" value="Student" checked={false} />
         Student
       </label>
     </div>
     <div className="radio">
       <label>
-        <input type="radio" value="Teacher" />
+        <input type="radio" value="Teacher" checked={false} />
         Teacher
       </label>
     </div>
