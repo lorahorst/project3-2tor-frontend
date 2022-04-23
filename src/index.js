@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Landing, Home, NotFound, ShowHomework } from "pages";
+import { Landing, Home, NotFound, ShowHomework, ShowSolutions, CreateHomework, CreateSolution } from "pages";
 import { PrivateRoute } from "components";
 import { AuthContextProvider } from "context";
 
@@ -24,7 +24,10 @@ ReactDOM.render(
             />
             <Route path="landing" element={<Landing />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="createhw" element={<CreateHomework />} />
+            <Route path="createsol" element={<CreateSolution />} />
             <Route path="homework" element={<ShowHomework />} />
+            <Route path="solution" element={<ShowSolutions />} />
           </Route>
         </Routes>
       </AuthContextProvider>
