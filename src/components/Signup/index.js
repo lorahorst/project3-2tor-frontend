@@ -51,18 +51,6 @@ export function Signup() {
           setPassword(e.target.value);
         }}
       />
-    <div className="radio">
-      <label>
-        <input type="radio" value="Student" checked={false} />
-        Student
-      </label>
-    </div>
-    <div className="radio">
-      <label>
-        <input type="radio" value="Teacher" checked={false} />
-        Teacher
-      </label>
-    </div>
       <button>Signup</button>
     </form>
   );
