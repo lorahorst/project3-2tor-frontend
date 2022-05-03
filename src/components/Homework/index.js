@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { client } from "client"
 
 
 export function Homework({ id, title, content, setHomeworks, homework }) {
@@ -7,13 +8,20 @@ export function Homework({ id, title, content, setHomeworks, homework }) {
   const [newHomeworkContent, setNewHomeworkContent] = useState(content);
 
   const handleDelete = () => {
-    setHomeworks((previousHomeworks) => {
-    
-      return previousHomeworks.filter((homework) => {
-        
-        return homework.id !== id;
-      });
-    });
+    (async function () {
+      // Endpoint for DELETING posts from the backend
+      const url = `${process.env.REACT_APP_BACKEND_URL}/post/${id}`;
+      // Request config that is going to hold the authorization
+      const config = {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      };
+      // make the request
+      const result = await axios.delete(url, config);
+
+      getPosts();
+    })();
   };
 
   // handle the change of variable showAll
