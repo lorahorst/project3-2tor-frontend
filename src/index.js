@@ -19,15 +19,19 @@ ReactDOM.render(
               element={
                 <PrivateRoute>
                   <Home />
+                  <CreateHomework />
+                  <CreateSolution />
+                  <ShowHomework />
+                  <ShowSolutions />
                 </PrivateRoute>
               }
             />
+            <Route path="createhw" element={<CreateHomework />} />
+            <Route path="showhw" element={<ShowHomework />} />
+            <Route path="createsol" element={<CreateSolution />} />
+            <Route path="showsol" element={<ShowSolutions />} />
             <Route path="landing" element={<Landing />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="createhw" element={<CreateHomework />} />
-            <Route path="createsol" element={<CreateSolution />} />
-            <Route path="homework" element={<ShowHomework />} />
-            <Route path="solution" element={<ShowSolutions />} />
           </Route>
         </Routes>
       </AuthContextProvider>
