@@ -1,7 +1,7 @@
 import { client } from "client";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "context";
-import { ShowHomework2 } from "components";
+import { ShowHomework } from "components";
 
 export function ShowHw() {
   const { user } = useContext(AuthContext);
@@ -21,7 +21,7 @@ export function ShowHw() {
   return (
     <div>
       <h1>AllHomework</h1>
-      <ShowHomework2 homeworks={homeworks} />
+      <ShowHomework homeworks={homeworks} />
     </div>
   );
 }
