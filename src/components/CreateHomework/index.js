@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { client } from "client";
+import { useNavigate } from "react-router-dom";
 
 // add tweets is for getting new tweets when adding a new one
 export function CreateHomework() {
@@ -16,6 +17,7 @@ export function CreateHomework() {
     // make a request with 
     const homework = await client.post("/hw", data);
       };
+      
   return (
     <form onSubmit={handleSubmit} className="homework">
       <div className="homework__input">

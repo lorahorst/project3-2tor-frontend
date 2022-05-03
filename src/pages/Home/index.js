@@ -33,7 +33,6 @@ export function Home() {
 
   return (
     <div>
-      <h1>Home</h1>
       <h2>{`${user.firstName} ${user.lastName}`}</h2>
       <><h3>My Homework</h3>
       <ShowHomework homeworks={homeworks} setHomeworks={setHomeworks} /></>

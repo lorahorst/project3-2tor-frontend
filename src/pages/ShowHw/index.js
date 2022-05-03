@@ -20,7 +20,7 @@ export function ShowHw() {
 
   return (
     <div>
-      <h1>AllHomework</h1>
+      <h1>All Homework</h1>
       <ShowHomework homeworks={homeworks} />
     </div>
   );
