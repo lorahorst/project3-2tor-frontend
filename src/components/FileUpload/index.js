@@ -1,8 +1,8 @@
-import axios from 'axios'
+import { client } from 'client'
 
 export function FileUpload({setFile}) {
   const uploadImage = (file) => {
-    return axios.post(`${process.env.REACT_APP_BACKEND_URL}/upload`, file)
+    return client.post(`/upload`, file)
       .then(res => res.data)
       .catch((err) => console.log(err))
   }

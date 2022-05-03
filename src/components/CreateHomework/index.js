@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { client } from "client";
 
 // add tweets is for getting new tweets when adding a new one
 export function CreateHomework() {
@@ -12,17 +12,9 @@ export function CreateHomework() {
     const data = {title: titleInput,
       content: homeworkInput,
     };
-    // url of the endpoint for homework
-    const url = `${process.env.REACT_APP_BACKEND_URL}/hw`;
-    // reqest configuration for adding a header with authorization
-    const config = {
-      headers: {
-        // read token from local storage and send it with request
-        authorization: localStorage.getItem("token"),
-      },
-    };
-    // make a request with axios
-    const homework = await axios.post(url, data, config);
+ 
+    // make a request with 
+    const homework = await client.post("/hw", data);
       };
   return (
     <form onSubmit={handleSubmit} className="homework">

@@ -1,4 +1,4 @@
-import axios from "axios";
+import { client } from "client";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "context";
 import { ShowHomework, ShowSolution } from "../../components"
@@ -11,15 +11,8 @@ export function Home() {
 
   const getHomeworks = async () => {
    
-    const url = `${process.env.REACT_APP_BACKEND_URL}/hw/owned`;
-  
-    const config = {
-      headers: {
-        authorization: localStorage.getItem("token"),
-      },
-    };
     // make the request
-    const result = await axios.get(url, config);
+    const result = await client.get("/hw/owned");
     setHomeworks(result.data);
   };
 
@@ -29,15 +22,8 @@ export function Home() {
 
   const getSolutions = async () => {
    
-    const url = `${process.env.REACT_APP_BACKEND_URL}/sol/owned`;
-  
-    const config = {
-      headers: {
-        authorization: localStorage.getItem("token"),
-      },
-    };
     // make the request
-    const result = await axios.get(url, config);
+    const result = await client.get("/sol/owned");
     setSolutions(result.data);
   };
 
