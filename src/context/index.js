@@ -33,7 +33,7 @@ export function AuthContextProvider({ children }) {
       });
       saveToken(response.data.token);
       setUser(response.data.user);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +42,7 @@ export function AuthContextProvider({ children }) {
   const verify = async () => {
     try {
       const response = await client.get("/auth/verify");
-      setUser(response.data.user);
+      setUser(response.data);
       navigate("/");
     } catch (error) {
       navigate("/landing");
