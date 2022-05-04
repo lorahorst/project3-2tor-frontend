@@ -41,7 +41,9 @@ export function Home() {
     <div>
       {user ? (
         <div>
+          <h1>Create Homework</h1>
           <CreateHomework getHomeworks={getHomeworks} setHomeworks={setHomeworks} />
+          <h1>My Homework</h1>
           <ShowHomework
             homeworks={homeworks}
             setHomeworks={setHomeworks}

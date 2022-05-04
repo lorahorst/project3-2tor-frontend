@@ -72,7 +72,7 @@ export function Homework({
   return (
     <div className="homework">
       <div>
-        <p>{createdAt.toString().split('T')[0]}</p>
+        <p className="date">{createdAt.toString().split('T')[0]}</p>
         </div>
 
 
