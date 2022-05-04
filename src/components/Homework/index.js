@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { client } from "client";
 import { useNavigate } from "react-router-dom";
+import "../../index.css";
 
 
 // Receive the id, the content and the setPost function.
@@ -69,7 +70,7 @@ export function Homework({
   };
 
   return (
-    <>
+    <div className="homework">
       <div>
         <p>{createdAt.toString().split('T')[0]}</p>
         </div>
@@ -118,5 +119,5 @@ export function Homework({
               <button className=" bg-gray-100 rounded-lg p-2"  onClick={handleDelete}>Delete</button>
             </div>
           )}
-          </>
+          </div>
   );}
