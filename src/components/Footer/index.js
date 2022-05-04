@@ -1,5 +1,7 @@
+import "../../index.css"
+
 export function Footer() {
     return(
-        <p>Keep Learning! @ 2tor!</p>
+        <div class="footer">Keep Learning! @ 2tor!</div>
     )
 }

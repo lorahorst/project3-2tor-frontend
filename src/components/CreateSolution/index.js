@@ -1,36 +1,34 @@
-import { useState } from "react";
 import { client } from "client";
+import { useContext, useState } from "react";
+import { AuthContext } from "context";
 
-// add tweets is for getting new tweets when adding a new one
-export function CreateSolution() {
-  const [titleInput, setTitleInput] = useState("");
-  const [solutionInput, setSolutionInput] = useState("");
 
-  const handleSubmit = async (event) => {
+export function CreateSolution ({ id, individualHomework, setIndividualHomework }) {
+  const [solutionContent, setSolutionContent] = useState("");
+  const { user } = useContext(AuthContext);
+
+  const handleSubmit = async event => {
     event.preventDefault();
-    // data to send in the request body
-    const data = {title: titleInput,
-      content: solutionInput,
+    // Data to send in the request body
+    const data = {
+      solutionContent: solutionContent,
     };
- 
-    // make a request with 
-    const solution = await client.post("/sol", data);
-      };
+    // make a request with axios
+    const solution = await client.post(`/hw/${id}`, data);
+    const homeworkCopy = JSON.parse(JSON.stringify(individualHomework));
+    homeworkCopy.solutions.push(solution.data);
+    setIndividualHomework(homeworkCopy);
+    setSolutionContent("");
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="solution">
-      <div className="solution__input">
-      <input
-        id="title"
-        value={titleInput}
-        onChange={(e) => {
-          setTitleInput(e.target.value);
-        }}
-      />
+    <form onSubmit={handleSubmit}>
+      <div>
         <textarea
-          value={solutionInput}
-          onChange={(event) => setSolutionInput(event.target.value)}
+          value={solutionContent}
+          onChange={event => setSolutionContent(event.target.value)}
         />
-        <button type="submit">Create</button>
+        <button type="submit">Create Solution</button>
       </div>
     </form>
   );

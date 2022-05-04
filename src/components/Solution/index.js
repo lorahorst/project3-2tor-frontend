@@ -1,24 +1,34 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { client } from "client";
+import { AuthContext } from "context";
 
-
-export function Solution({ id, content, setSolutions, solution }) {
+// Receive the id, the content and the setComment function
+export function Solution({
+  fetchHomework,
+  id,
+  solutionContent,
+  setSolution,
+  solution,
+  deleteSolution,
+  updateSolution,
+}) {
   const [showAll, setShowAll] = useState(false);
   const [edit, setEdit] = useState(false);
-  const [newSolutionContent, setNewSolutionContent] = useState(content);
+  const [newSolutionContent, setNewSolutionContent] = useState(solutionContent);
 
-  const handleDelete = () => {
-    setSolutions((previousSolutions) => {
-   
-      return previousSolutions.filter((solution) => {
-   
-        return solution.id !== id;
-      });
-    });
+  // handle Comment deletion
+  const handleDelete = solutionId => {
+    (async function () {
+
+      // Make the request
+      const result = await client.delete(`/sol/${id}`);
+      deleteSolution(solutionId);
+    })();
   };
 
-  // handle the change of variable showAll
+  // Handle the change of variable showAll
   const handleShowAll = () => {
-    setShowAll((previousValue) => {
+    setShowAll(previousValue => {
       return !previousValue;
     });
   };
@@ -32,52 +42,67 @@ export function Solution({ id, content, setSolutions, solution }) {
   };
 
   const handleSave = () => {
-    setSolutions((previousSolutions) => {
-      return previousSolutions.map((solution) => {
-        if (solution.id === id) {
-          return {
-            id: solution.id,
-            content: newSolutionContent,
-          };
-        } else {
-          return solution;
-        }
-      });
-    });
+    // Function to EDIT the comments from the backend
+    (async function () {
+
+      // Make the request
+      const result = await client.put(
+        `/sol/${id}`,
+        {
+          solutionContent: newSolutionContent,
+        },
+      );
+      fetchHomework();
+    })();
+
     handleCancel();
   };
-  return (
-      <div className="solution__input">
-        <div className="username">{`${solution.user.firstName} ${solution.user.lastName}`}</div>
-        {edit ? (
-          <textarea
-            value={newSolutionContent}
-            onChange={(event) => setNewSolutionContent(event.target.value)}
-          />
-        ) : showAll ? (
-          <p>{content}</p>
-        ) : (
-          <p>
-            {content.length > 100 ? `${content.substring(0, 100)}...` : content}
-          </p>
-        )}
 
-        {edit ? (
-          <div className="solution__actions">
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
-          </div>
-        ) : (
-          <div className="solution__actions">
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-            {content.length > 100 && (
-              <button onClick={handleShowAll}>
-                {showAll ? "Read less" : "Read more"}
+  return (
+    <>
+      <div>
+        <div>
+          <div>{`${solution.user}`}</div>
+
+          {edit ? (
+            <textarea
+              value={newSolutionContent}
+              onChange={event => setNewSolutionContent(event.target.value)}
+            />
+          ) : showAll ? (
+            <p>{solutionContent}</p>
+          ) : (
+            <p>
+              {solutionContent.length > 100
+                ? `${solutionContent.substring(0, 100)}...`
+                : solutionContent}
+            </p>
+          )}
+
+          {edit ? (
+            <div>
+              <button onClick={handleSave}>Save</button>
+              <button onClick={handleCancel}>Cancel</button>
+            </div>
+          ) : (
+            <div>
+              {solutionContent.length > 100 && (
+                <button onClick={handleShowAll}>
+                  {showAll ? "Read less" : "Read more"}
+                </button>
+              )}
+              <button onClick={handleEdit}>Edit</button>
+              <button
+                onClick={() => {
+                  handleDelete(solution._id);
+                }}
+              >
+                Delete
               </button>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
+    </>
   );
 }
