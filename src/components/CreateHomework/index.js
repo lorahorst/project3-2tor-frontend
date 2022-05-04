@@ -25,7 +25,7 @@ export function CreateHomework({ getHomeworks }) {
   return (
     <form className=" p-20 " onSubmit={handleSubmit}>
       <div className=" border-2 border-emerald-300 p-20 bg-white rounded-xl flex flex-col justify-start">
-        <h1 className="mb-5 text-stone-600 font-bold text-xl">Home</h1>
+        <h1>Home</h1>
         <input className="border-2 p-2 rounded-lg mb-5"
           placeholder="Post title"
           value={homeworkTitle}

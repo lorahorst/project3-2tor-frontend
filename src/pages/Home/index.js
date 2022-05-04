@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "context";
 import { useNavigate } from "react-router-dom";
 import { CreateHomework, ShowHomework } from "../../components";
+import "../../index.css"
 
 
 export function Home() {

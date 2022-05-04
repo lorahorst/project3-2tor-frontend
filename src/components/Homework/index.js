@@ -82,7 +82,7 @@ export function Homework({
               onChange={event => setNewHomeworkTitle(event.target.value)}
             />
           ) : (
-            <p className="font-bold my-2">{title}</p>
+            <p className="title">{title}</p>
           )}
 
           {edit ? (
@@ -91,7 +91,7 @@ export function Homework({
               onChange={event => setNewHomeworkContent(event.target.value)}
             />
           ) : showAll ? (
-            <p>{content}</p>
+            <p className="content">{content}</p>
           ) : (
             <p className="my-2">
               {content.length > 100
