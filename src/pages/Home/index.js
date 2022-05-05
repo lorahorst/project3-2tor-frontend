@@ -26,7 +26,7 @@ export function Home() {
     // Endpoint for acquiring posts from the backend
 
     // make the request
-    const result = await client.get(`/sol`);
+    const result = await client.get(`/sol/owned`);
     setSolutions(result.data);
   };
 

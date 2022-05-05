@@ -1,8 +1,10 @@
 import { Homework } from "../Homework";
+import "../../index.css"
 
 export function ShowHomework({ homeworks, setHomeworks, getHomeworks }) {
   return (
-    <div>
+    <div className="homework-container">
+    <div className="show-Homework">
       {homeworks
         .slice(0)
         .reverse()
@@ -14,14 +16,15 @@ export function ShowHomework({ homeworks, setHomeworks, getHomeworks }) {
               id={homework._id}
               title={homework.title}
               content={homework.content}
-              comments={homework.comments}
-              setPosts={setHomeworks}
-              post={homework}
-              getPosts={getHomeworks}
+              solutions={homework.solutions}
+              setHomeworks={setHomeworks}
+              homework={homework}
+              getHomeworks={getHomeworks}
               createdAt={homework.createdAt}
             />
           );
         })}
     </div>
+    </div>
   );
-}
+      }
