@@ -1,6 +1,7 @@
 import { client } from "client";
 import { useContext, useState } from "react";
 import { AuthContext } from "context";
+import "../../index.css"
 
 
 export function CreateSolution ({ id, individualHomework, setIndividualHomework }) {
@@ -28,6 +29,8 @@ export function CreateSolution ({ id, individualHomework, setIndividualHomework 
           value={solutionContent}
           onChange={event => setSolutionContent(event.target.value)}
         />
+      </div>
+      <div>
         <button type="submit">Create Solution</button>
       </div>
     </form>
