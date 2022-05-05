@@ -34,7 +34,6 @@ export function SingleHomework({ setSolutions, getSolutions }) {
     <div>
       {individualHomework && (
         <div>
-          <p >{individualHomework.user.firstName}</p>
           <h3>{individualHomework.title}</h3>
           <p>{individualHomework.content}</p>
           <CreateSolution

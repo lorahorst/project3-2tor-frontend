@@ -114,7 +114,7 @@ export function Homework({
                   {showAll ? "Read less" : "Read more"}
                 </button>
               )}
-              <button className=" bg-gray-100 rounded-lg  text-stone-700 text-2xl p-2" onClick={handleShowSolution}></button>
+              <button className=" bg-gray-100 rounded-lg  text-stone-700 text-2xl p-2" onClick={handleShowSolution}>Go to...</button>
               <button className=" bg-gray-100 rounded-lg p-2 min-w-fit " onClick={handleEdit}>Edit</button>
               <button className=" bg-gray-100 rounded-lg p-2"  onClick={handleDelete}>Delete</button>
             </div>

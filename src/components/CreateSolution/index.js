@@ -14,7 +14,7 @@ export function CreateSolution ({ id, individualHomework, setIndividualHomework 
       solutionContent: solutionContent,
     };
     // make a request with axios
-    const solution = await client.post(`/hw/${id}`, data);
+    const solution = await client.post(`/sol/${id}`, data);
     const homeworkCopy = JSON.parse(JSON.stringify(individualHomework));
     homeworkCopy.solutions.push(solution.data);
     setIndividualHomework(homeworkCopy);
