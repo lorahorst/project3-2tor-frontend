@@ -2,6 +2,7 @@ import { client } from "client";
 import { CreateSolution, ShowSolution } from "../../components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../../index.css"
 
 export function SingleHomework({ setSolutions, getSolutions }) {
   const [individualHomework, setIndividualHomework] = useState();
@@ -34,8 +35,10 @@ export function SingleHomework({ setSolutions, getSolutions }) {
     <div>
       {individualHomework && (
         <div>
-          <h3>{individualHomework.title}</h3>
-          <p>{individualHomework.content}</p>
+            <div className="single-Homework">
+            <h3>{individualHomework.title}</h3>
+              <p>{individualHomework.content}</p>
+            </div>
           <CreateSolution
             id={id}
             individualHomework={individualHomework}
