@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { client } from "client";
 import { AuthContext } from "context";
+import "../../index.css"
 
 // Receive the id, the content and the setComment function
 export function Solution({
@@ -62,7 +63,7 @@ export function Solution({
     <>
       <div>
         <div>
-          <div>{`${solution.user}`}</div>
+          <div className="date">{`${solution.createdAt}`}</div>
 
           {edit ? (
             <textarea
