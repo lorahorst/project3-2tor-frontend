@@ -46,11 +46,14 @@ form {
 input {
   border-radius: 5px;
   padding: 5px;
+  min-width: 100vh;
 }
 
 textarea {
   border-radius: 5px;
   padding: 5px;
+  min-width: 100vh;
+  min-height: 30vh;
 }
 
 button {
@@ -130,6 +133,7 @@ li {
 
 h1 {
   padding: 20px;
+  text-align: center;
 }
 
 p {
