@@ -2,7 +2,7 @@ import { client } from "client";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "context";
 import { useNavigate } from "react-router-dom";
-import { CreateHomework, ShowHomework } from "../../components";
+import { CreateHomework, ShowHomework, CreateSolution, ShowSolution } from "../../components";
 import "../../index.css"
 
 
@@ -49,6 +49,12 @@ export function Home() {
             setHomeworks={setHomeworks}
             getHomeworks={getHomeworks}
             getSolutions={getSolutions}
+          />
+          <ShowSolution
+            solutions={solutions}
+            setSolutions={setSolutions}
+            getSolutions={getSolutions}
+            getHomeworks={getHomeworks}
           />
         </div>
       ) : (
